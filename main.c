@@ -1,6 +1,7 @@
 // #include <stdio.h>
 #include "puts.h"
 
+
 int main()
 {
     int retj = 0;

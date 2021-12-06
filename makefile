@@ -7,4 +7,4 @@ puts.o:puts.c
 
 .PHONY:clean
 clean:
-	@rm *.o main
+	@rm -f *.o main
