@@ -1,9 +1,11 @@
+CC = gcc
+
 main:main.o puts.o
-	@gcc $^ -o $@
+	@$(CC) $^ -o $@
 main.o:main.c
-	@gcc -c $^ -o $@
+	@$(CC) -c $^ -o $@
 puts.o:puts.c
-	@gcc -c $^ -o $@
+	@$(CC) -c $^ -o $@
 
 .PHONY:clean
 clean:
