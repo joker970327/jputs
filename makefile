@@ -1,12 +1,18 @@
 CC = gcc
+TARGET = main
+SRC = $(wildcard ./*c)
+# OBJ = main.o puts.o 
+# OBJ = $(patsubst %.c, %.o, $(SRC)) 
+OBJ = $(SRC:%.c=%.o) 
+# FLAGS = -c
 
-main:main.o puts.o
-	@$(CC) $^ -o $@
-main.o:main.c
-	@$(CC) -c $^ -o $@
-puts.o:puts.c
-	@$(CC) -c $^ -o $@
+
+$(TARGET): $(OBJ)
+	@$(CC) $(OBJ) -o $(TARGET)
+
+%.o: %.c
+	@$(CC) -c $< -o $@
 
 .PHONY:clean
 clean:
-	@rm -f *.o main
+	@rm -f $(OBJ) $(TARGET)
